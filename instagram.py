@@ -63,7 +63,7 @@ url_base = u'https://www.instagram.com/'
 uri = u'https://www.instagram.com/graphql/query/?query_hash=a5164aed103f24b03e7b7747a2d94e3c&variables=%7B%22id%22%3A%22{user_id}%22%2C%22first%22%3A12%2C%22after%22%3A%22{cursor}%22%7D'
 
 
-BASE_PATH = 'D:\\videos\\instagram\\'
+BASE_PATH = 'C:\\videos\\instagram\\'
 
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
