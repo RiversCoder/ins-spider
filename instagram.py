@@ -95,7 +95,7 @@ def get_json(url):
             print('请求网页json错误, 错误状态码：', response.status_code)
     except Exception as e:
         print(e)
-        time.sleep(5 + float(random.randint(1, 4000))/100)
+        time.sleep(10 + float(random.randint(1, 4000))/100)
         return get_json(url)
 
 
@@ -156,6 +156,10 @@ def main(user):
     url = url_base + user + '/'
     html = get_html(url)
     urls = get_urls(html)
+
+    with open('./urls.json', 'w') as f:
+        f.write(json.dumps(urls))
+
     dirpath = BASE_PATH+'{0}'.format(user)
     if not os.path.exists(dirpath):
         os.mkdir(dirpath)
@@ -163,7 +167,22 @@ def main(user):
         print('\n正在下载第{0}张： '.format(i) + urls[i], ' 还剩{0}张'.format(len(urls)-i-1))
         try:
             content = get_content(urls[i])
-            file_path = BASE_PATH+'{0}\\{1}.{2}'.format(user, '高质量-韩国-模特-生活-'+str(i), urls[i][-43:-40]) #md5(content).hexdigest()
+
+            houzui = ''
+            print('---------------------------------------------')
+            print(urls[i])
+            if(re.search("\.jpg", urls[i])):
+                print('匹配到jpg文件')
+                houzui = 'jpg'
+            elif(re.search("\.mp4\?+", urls[i])):
+                print('匹配到MP4文件')
+                houzui = 'mp4'
+            else:
+                print('什么都没匹配到')
+            print(houzui)
+
+            file_path = BASE_PATH+'{0}\\{1}.{2}'.format(user, '高质量-美女-生活自拍-'+str(i), houzui) #md5(content).hexdigest()
+            print(file_path)
             if not os.path.exists(file_path):
                 with open(file_path, 'wb') as f:
                     print('第{0}张下载完成： '.format(i) + urls[i])

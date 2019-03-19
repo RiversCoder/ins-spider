@@ -4,3 +4,12 @@ im_bonobona:模特
 ssong2ya_:模特
 i_na0912:模特
 _bitnara_:主播
+___angevivi
+lxxseyoung
+yu.n_gh: 帅哥
+do.hyeon_im: 帅哥
+colza0407: 柴犬
+koh0903: 柴犬
+de_muse_: 美女
+
+Array.prototype.slice.call(document.getElementsByClassName('u7YqG')).forEach(v => v.style.display = 'none')
